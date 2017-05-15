@@ -9,5 +9,8 @@ cd ~/.howl/bundles
 git clone https://github.com/rokf/howl-red
 ```
 
+Set `howl.config.red_executable` to your red compiler name or path.
+
 #### Includes
 - Syntax highlighting
+- red-run command

@@ -52,7 +52,7 @@ howl.util.lpeg_lexer ->
     digit^1 * ":" * digit^1 * (":" * digit^1 * ("." * digit^1)^-1)^-1 -- time
     P(':') * ident
     digit^1 * P('.') * digit^1 * P('.') * (digit^1 * P('.')^-1)^0 -- tuple
-    P('<') * (P(1) - '>')^1 * P('>') -- tag
+    P('<') * alpha * (P(1) - '>')^0 * P('>') -- tag
     -- protocols * P(':') * (P(1) - S(' \n'))^1 -- URL
     -- P('%') * (P(1) - S(' \n'))^1 -- file
     P("'") * ident -- "quoted word"

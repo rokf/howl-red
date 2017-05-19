@@ -12,5 +12,6 @@ git clone https://github.com/rokf/howl-red
 Set `howl.config.red_executable` to your red compiler name or path.
 
 #### Includes
-- Syntax highlighting
+- syntax highlighting
 - red-run command
+- autocomplete and docs for built-in functions

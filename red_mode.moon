@@ -13,7 +13,7 @@ class RedMode
   comment_syntax: ';'
 
   default_config:
-    word_pattern: '[%w%?%-%!]+'
+    word_pattern: '[%w%?%-%!_~%*+/<>=]+'
 
   auto_pairs: {
     '(': ')'

@@ -33,7 +33,3 @@ class RedMode
       '^%s*)'
     }
   }
-
-  code_blocks:
-    multiline: {
-    }

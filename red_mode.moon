@@ -4,16 +4,8 @@ class RedMode
     @lexer = bundle_load 'red_lexer'
     @completers = { 'in_buffer', 'api' }
 
-  -- resolve_type: (context) =>
-  --   pfx = context.prefix
-  --   parts = [p for p in pfx\gmatch '[%w%-%?%!]+']
-  --   print(parts[#parts])
-  --   nil, { parts[#parts] }
-
   comment_syntax: ';'
-
-  default_config:
-    word_pattern: '[%w%?%-%!_~%*+/<>=]+'
+  word_pattern: '[%w%?%-%!_~%*+/<>=]+'
 
   auto_pairs: {
     '(': ')'

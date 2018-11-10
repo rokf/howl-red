@@ -11,7 +11,7 @@ howl.util.lpeg_lexer ->
   todo_comment = capture 'warning', P';' * P' '^0 * P'TODO' * scan_until(eol)
 
   string = capture 'string', any {
-    span('"', '"', any { P('^') })
+    span('"', '"', P('^'))
     P { 'nestedb', nestedb: str_span('{','}') }
   }
 
@@ -39,8 +39,7 @@ howl.util.lpeg_lexer ->
 
   special = capture 'special', any {
     integer * P('x') * integer -- pair
-    P('#') * ident
-    P('#') * span('"', '"') -- character
+    P('#') * (span('"', '"') + ident)
     P('/') * (ident + digit^1) -- refinement
     digit^1 * ":" * digit^1 * (":" * digit^1 * ("." * digit^1)^-1)^-1 -- time
     P(':') * ident
@@ -50,16 +49,13 @@ howl.util.lpeg_lexer ->
     -- protocols * P(':') * (P(1) - S(' \n'))^1 -- URL
   }
 
-
-  vdef = capture 'variable', ident * P(':')
-
   any {
     special
     number
     string
     todo_comment
     comment
-    vdef
+    capture 'variable', ident * P(':')
     identifier
     operator
   }
